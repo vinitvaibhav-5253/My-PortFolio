@@ -3,7 +3,7 @@ export const siteConfig = {
   title: 'Vinit Vaibhav Kumar — AIML (Artificial Intelligence & Machine Learning)',
   description:
     'Portfolio of Vinit Vaibhav Kumar — Specialised in AIML (Artificial Intelligence & Machine Learning), Python, NLP, and IT Technical Operations.',
-  url: 'https://vinitvaibhav.dev',
+  url: 'https://vinitvaibhav.online',
   ogImage: '/images/profile.jpg',
   links: {
     github: 'https://github.com/vinitvaibhav-5253',
