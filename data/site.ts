@@ -1,40 +1,31 @@
 export const siteConfig = {
-  name: 'Vinit Vaibhav',
-  title: 'Vinit Vaibhav — Developer Portfolio',
+  name: 'Vinit Vaibhav Kumar',
+  title: 'Vinit Vaibhav Kumar — AIML (Artificial Intelligence & Machine Learning)',
   description:
-    'Full-stack developer crafting performant, accessible web and mobile experiences. Explore my projects, skills, and professional journey.',
+    'Portfolio of Vinit Vaibhav Kumar — Specialised in AIML (Artificial Intelligence & Machine Learning), Python, NLP, and IT Technical Operations.',
   url: 'https://vinitvaibhav.dev',
-  ogImage: '/images/og-default.png',
+  ogImage: '/images/profile.jpg',
   links: {
-    github: 'https://github.com/vinitvaibhav',
-    linkedin: 'https://linkedin.com/in/vinitvaibhav',
-    twitter: 'https://twitter.com/vinitvaibhav',
-    email: 'hello@vinitvaibhav.dev',
+    github: 'https://github.com/vinitvaibhav-5253',
+    linkedin: 'https://linkedin.com/in/vinit-vaibhav-13b089344',
+    twitter: 'https://x.com/vinitvaibhav_53',
+    email: 'vinitvaibhav5253@gmail.com',
+    phone: '+91-7763864835',
   },
 } as const
 
 export type SiteConfig = typeof siteConfig
 
 export const navLinks = [
-  { label: 'Home', href: '/' },
   { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
+  { label: 'Resume', href: '#resume' },
   { label: 'Contact', href: '#contact' },
 ] as const
 
 export type NavLink = (typeof navLinks)[number]
 
-export interface Project {
-  title: string
-  description: string
-  tags: string[]
-  image?: string
-  liveUrl?: string
-  repoUrl?: string
-  featured?: boolean
-}
-
-export const projects: Project[] = [
-  // Add your projects here
-]
+export type { Project } from './types'
+export { projects } from './projects'

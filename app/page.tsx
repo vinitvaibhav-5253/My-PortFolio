@@ -1,19 +1,31 @@
+import dynamic from 'next/dynamic'
+
+import { Hero } from '@/components/sections/hero'
+import { PageTransition } from '@/components/layout/page-transition'
+
+/* ---------- Lazy-load below-the-fold sections ---------- */
+
+const About = dynamic(() => import('@/components/sections/about').then((m) => m.About))
+const Skills = dynamic(() => import('@/components/sections/skills').then((m) => m.Skills))
+const Projects = dynamic(() => import('@/components/sections/projects').then((m) => m.Projects))
+const Experience = dynamic(() =>
+  import('@/components/sections/experience').then((m) => m.Experience),
+)
+const Resume = dynamic(() => import('@/components/sections/resume').then((m) => m.Resume))
+const Contact = dynamic(() => import('@/components/sections/contact').then((m) => m.Contact))
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-          Vinit{' '}
-          <span className="text-primary">Vaibhav</span>
-        </h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Developer Portfolio — Built with Next.js 15, Tailwind CSS & shadcn/ui
-        </p>
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm text-muted-foreground">Project scaffolded successfully</span>
-        </div>
-      </div>
+    <main id="main-content">
+      <PageTransition>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Resume />
+        <Contact />
+      </PageTransition>
     </main>
   )
 }
