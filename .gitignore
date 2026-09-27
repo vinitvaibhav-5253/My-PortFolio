@@ -53,3 +53,5 @@ Thumbs.db
 # Misc
 AGENTS.md
 CLAUDE.md
+.codex/
+.gemini/

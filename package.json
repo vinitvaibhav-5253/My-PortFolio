@@ -1,7 +1,36 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
+  "description": "Personal portfolio of Vinit Vaibhav Kumar — AIML Specialist & Full-Stack Developer. Built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, and Framer Motion.",
+  "author": {
+    "name": "Vinit Vaibhav Kumar",
+    "email": "vinitvaibhav5253@gmail.com",
+    "url": "https://vinitvaibhav.online"
+  },
+  "license": "MIT",
+  "homepage": "https://vinitvaibhav.online",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinitvaibhav-5253/My-PortFolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vinitvaibhav-5253/My-PortFolio/issues"
+  },
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "framer-motion",
+    "shadcn-ui",
+    "aiml",
+    "personal-website"
+  ],
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
