@@ -223,7 +223,7 @@
 }
 
 /* ===================================================================
-   Animations & Keyframes
+   Animations & Keyframes (100% GPU-Accelerated)
    =================================================================== */
 
 @keyframes glow-drift {
@@ -241,6 +241,139 @@
   will-change: transform;
   transform: translate3d(-50%, 0, 0);
   backface-visibility: hidden;
+}
+
+@keyframes aurora-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-aurora-spin {
+  animation: aurora-spin 20s linear infinite;
+  will-change: transform;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-delay-1 {
+  animation: float-slow 4.5s ease-in-out infinite 1.2s;
+  will-change: transform;
+}
+
+.animate-float-delay-2 {
+  animation: float-slow 3.8s ease-in-out infinite 0.6s;
+  will-change: transform;
+}
+
+@keyframes button-shine {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-button-shine {
+  animation: button-shine 3.5s ease-in-out infinite;
+}
+
+@keyframes underline-expand {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-underline-expand {
+  animation: underline-expand 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: left;
+  will-change: transform;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(-12px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes gradient-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-gradient-shimmer {
+  background-size: 200% auto;
+  animation: gradient-shimmer 4s linear infinite;
+}
+
+@keyframes scale-pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-pop {
+  animation: scale-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
 }
 
 /* GPU acceleration helper */
@@ -262,5 +395,19 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .animate-glow-drift,
+  .animate-aurora-spin,
+  .animate-float-slow,
+  .animate-float-delay-1,
+  .animate-float-delay-2,
+  .animate-button-shine,
+  .animate-underline-expand,
+  .animate-pulse-ring,
+  .animate-slide-in-right,
+  .animate-gradient-shimmer,
+  .animate-scale-pop {
+    animation: none !important;
   }
 }

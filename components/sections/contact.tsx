@@ -397,7 +397,7 @@ export function Contact() {
               <div className="space-y-4">
                 {/* Email Item with Copy & Direct Compose */}
                 <div className="group text-muted-foreground flex items-start gap-3 text-sm transition-colors duration-200">
-                  <div className="border-border bg-card/50 text-primary group-hover:border-primary/50 group-hover:shadow-glow flex size-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-200 ease-out group-hover:scale-105">
+                  <div className="border-border bg-card/50 text-primary group-hover:border-primary/50 group-hover:shadow-glow flex size-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-200 ease-out group-hover:scale-105 animate-scale-pop">
                     <Mail className="text-primary size-4" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -443,7 +443,7 @@ export function Contact() {
 
                 {profile.phone && (
                   <div className="group text-muted-foreground flex items-center gap-3 text-sm transition-colors duration-200">
-                    <div className="border-border bg-card/50 text-primary group-hover:border-primary/50 group-hover:shadow-glow flex size-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-200 ease-out group-hover:scale-105">
+                    <div className="border-border bg-card/50 text-primary group-hover:border-primary/50 group-hover:shadow-glow flex size-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-200 ease-out group-hover:scale-105 animate-scale-pop">
                       <Phone className="text-primary size-4" />
                     </div>
                     <div>
@@ -459,7 +459,7 @@ export function Contact() {
                 )}
 
                 <div className="group text-muted-foreground flex items-center gap-3 text-sm transition-colors duration-200">
-                  <div className="border-border bg-card/50 text-primary group-hover:border-primary/50 group-hover:shadow-glow flex size-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-200 ease-out group-hover:scale-105">
+                  <div className="border-border bg-card/50 text-primary group-hover:border-primary/50 group-hover:shadow-glow flex size-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-200 ease-out group-hover:scale-105 animate-scale-pop">
                     <MapPin className="text-primary size-4" />
                   </div>
                   <div>

@@ -9,7 +9,6 @@ import {
   Briefcase,
   GraduationCap,
   Award,
-  Headphones,
   Eye,
   Brain,
 } from 'lucide-react'

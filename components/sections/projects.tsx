@@ -52,7 +52,7 @@ function FeaturedProjectCard({ project }: { project: Project }) {
       <Card className="group border-primary/20 bg-card/80 hover:border-primary/40 hover:shadow-glow-lg relative overflow-hidden backdrop-blur-sm transition-all duration-300 ease-out">
         {/* Top accent bar */}
         <div
-          className="from-primary/0 via-primary/70 to-primary/0 absolute inset-x-0 top-0 h-1 bg-gradient-to-r"
+          className="from-primary/0 via-primary/70 to-primary/0 absolute inset-x-0 top-0 h-1 bg-gradient-to-r animate-gradient-shimmer"
           aria-hidden="true"
         />
 

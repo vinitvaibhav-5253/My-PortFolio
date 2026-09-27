@@ -2,14 +2,20 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Mail, ArrowDown, FileText } from 'lucide-react'
+import { Mail, ArrowDown, FileText, Sparkles, Brain, Cpu, Cloud } from 'lucide-react'
 
 import { profile } from '@/data/profile'
 import { siteConfig } from '@/data/site'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
 import { GridBackground } from '@/components/ui/grid-background'
-import { fadeInUp, staggerContainer } from '@/lib/animations'
+import {
+  fadeInUp,
+  staggerContainer,
+  textRevealContainer,
+  textRevealWord,
+} from '@/lib/animations'
+import { cn } from '@/lib/utils'
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -72,10 +78,31 @@ export function Hero() {
           animate="visible"
           className="flex flex-col items-center text-center"
         >
-          {/* Profile Photo Avatar */}
+          {/* Profile Photo Avatar with Aurora Halo & GPU Floating Badges */}
           <motion.div variants={fadeInUp} className="relative mb-6">
-            <div className="relative size-28 rounded-full bg-gradient-to-tr from-primary via-primary/50 to-primary/20 p-1 shadow-glow transition-transform duration-300 hover:scale-105 sm:size-32">
-              <div className="relative size-full overflow-hidden rounded-full border-2 border-background bg-card">
+            {/* Outer Rotating Aurora Ring (Pure CSS GPU Keyframe) */}
+            <div
+              className="animate-aurora-spin pointer-events-none absolute -inset-3 rounded-full opacity-60 blur-md"
+              style={{
+                background:
+                  'conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)/0.2), hsl(var(--primary)))',
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Glowing Backdrop Ambient Pulse */}
+            <div
+              className="absolute -inset-1 rounded-full opacity-70 blur-xl"
+              style={{
+                background:
+                  'radial-gradient(circle, hsl(var(--glow-color)/0.5) 0%, transparent 70%)',
+              }}
+              aria-hidden="true"
+            />
+
+            {/* Avatar Frame */}
+            <div className="from-primary via-primary/50 to-primary/20 shadow-glow relative size-28 rounded-full bg-gradient-to-tr p-1 transition-transform duration-300 hover:scale-105 sm:size-32">
+              <div className="border-background bg-card relative size-full overflow-hidden rounded-full border-2">
                 <Image
                   src={profile.avatarUrl || '/images/profile.jpg'}
                   alt={profile.name}
@@ -86,28 +113,53 @@ export function Hero() {
                 />
               </div>
             </div>
+
+            {/* Floating Orbital Tech Badges (100% GPU Keyframes, Zero JS Overhead) */}
+            <div className="animate-float-slow border-border/80 bg-card/90 text-foreground shadow-glow absolute -top-2 -right-16 hidden items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium backdrop-blur-md sm:flex">
+              <Brain className="text-primary size-3" />
+              <span>AIML Specialist</span>
+            </div>
+
+            <div className="animate-float-delay-1 border-border/80 bg-card/90 text-foreground shadow-glow absolute top-14 -left-20 hidden items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium backdrop-blur-md sm:flex">
+              <Cpu className="text-accent size-3" />
+              <span>Python & ML</span>
+            </div>
+
+            <div className="animate-float-delay-2 border-border/80 bg-card/90 text-foreground shadow-glow absolute -right-14 -bottom-3 hidden items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-medium backdrop-blur-md sm:flex">
+              <Cloud className="text-primary size-3" />
+              <span>AWS 52h Trained</span>
+            </div>
           </motion.div>
 
           {/* Greeting badge */}
           <motion.div variants={fadeInUp}>
-            <span className="border-border bg-card/50 text-muted-foreground hover:border-primary/40 hover:shadow-glow inline-flex cursor-default items-center gap-2 rounded-full border px-4 py-1.5 text-sm backdrop-blur-sm transition-all duration-200">
+            <span className="border-border bg-card/60 text-muted-foreground hover:border-primary/40 hover:shadow-glow inline-flex cursor-default items-center gap-2 rounded-full border px-4 py-1.5 text-sm backdrop-blur-md transition-all duration-300">
               <span className="relative flex h-2 w-2">
                 <span className="bg-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" />
                 <span className="bg-primary relative inline-flex h-2 w-2 rounded-full" />
               </span>
-              Available for opportunities
+              <span>Available for opportunities</span>
+              <Sparkles className="text-primary ml-0.5 size-3.5" />
             </span>
           </motion.div>
 
-          {/* Name */}
+          {/* Name — Editorial Masked Word Reveal */}
           <motion.h1
-            variants={fadeInUp}
-            className="font-display mt-8 text-3xl font-bold tracking-tight break-words sm:text-5xl md:text-6xl lg:text-7xl"
+            variants={textRevealContainer}
+            className="font-display mt-8 flex flex-wrap justify-center gap-x-3 text-3xl font-bold tracking-tight break-words sm:text-5xl md:text-6xl lg:text-7xl"
           >
             {profile.name.split(' ').map((word, i, arr) => (
-              <span key={i}>
-                {i === arr.length - 1 ? <span className="text-primary">{word}</span> : word}
-                {i < arr.length - 1 ? ' ' : ''}
+              <span key={i} className="inline-block overflow-hidden py-1">
+                <motion.span
+                  variants={textRevealWord}
+                  className={cn(
+                    'inline-block',
+                    i === arr.length - 1 &&
+                      'text-primary drop-shadow-[0_0_24px_hsl(var(--primary)/0.35)]',
+                  )}
+                >
+                  {word}
+                </motion.span>
               </span>
             ))}
           </motion.h1>
@@ -131,7 +183,7 @@ export function Hero() {
           {/* CTAs */}
           <motion.div
             variants={fadeInUp}
-            className="mt-10 flex w-full flex-col gap-4 sm:w-auto sm:flex-row"
+            className="mt-10 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row"
           >
             <Button asChild size="lg" className="w-full sm:w-auto">
               <a href="#projects">
@@ -168,23 +220,27 @@ export function Hero() {
         </motion.div>
       </Container>
 
-      {/* Scroll indicator - hidden on mobile to avoid overlap */}
+      {/* Fluid Pill Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 sm:flex"
       >
         <a
           href="#about"
-          className="group text-muted-foreground/50 hover:text-primary flex flex-col items-center gap-2 transition-all duration-200 hover:scale-105 active:scale-95"
+          className="group text-muted-foreground/60 hover:text-primary flex flex-col items-center gap-2 transition-all duration-200"
           aria-label="Scroll to about section"
         >
-          <span className="group-hover:text-primary text-xs tracking-widest uppercase transition-colors">
+          <span className="group-hover:text-primary font-mono text-[10px] tracking-widest uppercase transition-colors">
             Scroll
           </span>
-          <div className="motion-safe:animate-bounce">
-            <ArrowDown className="group-hover:text-primary size-4 transition-colors" />
+          <div className="border-border/80 group-hover:border-primary/60 flex h-8 w-4.5 items-start justify-center rounded-full border p-1 transition-colors">
+            <motion.div
+              animate={{ y: [0, 10, 0], opacity: [1, 0.2, 1] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+              className="bg-primary size-1 rounded-full shadow-[0_0_6px_hsl(var(--primary))]"
+            />
           </div>
         </a>
       </motion.div>

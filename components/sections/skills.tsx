@@ -93,11 +93,12 @@ export function Skills() {
                     {/* Badge Grid with Interactive Glow */}
                     <CardContent className="pt-2">
                       <div className="flex flex-wrap gap-2">
-                        {category.skills.map((skill) => (
+                        {category.skills.map((skill, skillIdx) => (
                           <Badge
                             key={skill}
                             variant="secondary"
-                            className="border-border/60 bg-secondary/60 text-foreground hover:border-primary/50 hover:bg-primary/15 hover:text-primary inline-flex cursor-default items-center border px-3 py-1.5 text-xs font-medium break-words transition-all duration-200 hover:scale-105 hover:shadow-sm active:scale-95"
+                            className="border-border/60 bg-secondary/60 text-foreground hover:border-primary/50 hover:bg-primary/15 hover:text-primary inline-flex cursor-default items-center border px-3 py-1.5 text-xs font-medium break-words transition-all duration-200 hover:scale-105 hover:shadow-sm active:scale-95 animate-scale-pop"
+                            style={{ animationDelay: `${skillIdx * 60}ms` }}
                           >
                             <span className="bg-primary/70 mr-1.5 size-1.5 shrink-0 rounded-full" />
                             {skill}

@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { GraduationCap, MapPin, ArrowRight, Headphones, Award } from 'lucide-react'
+import { GraduationCap, MapPin, ArrowRight, Headphones } from 'lucide-react'
 
 import { profile } from '@/data/profile'
 import { Container } from '@/components/ui/container'
@@ -78,21 +78,21 @@ export function About() {
 
                 {/* Quick Info Badges inside photo frame */}
                 <div className="mt-5 flex flex-col gap-2.5">
-                  <div className="border-border/50 bg-secondary/40 hover:border-primary/40 hover:bg-secondary/70 flex cursor-default items-center gap-3 rounded-lg border p-3 text-sm transition-all duration-200 hover:translate-x-1">
+                  <div className="border-border/50 bg-secondary/40 hover:border-primary/40 hover:bg-secondary/70 flex cursor-default items-center gap-3 rounded-lg border p-3 text-sm transition-all duration-200 hover:translate-x-1 animate-slide-in-right" style={{ animationDelay: '0.1s' }}>
                     <GraduationCap className="text-primary size-4 shrink-0" />
                     <span className="text-muted-foreground text-xs break-words sm:text-sm">
                       Galgotias University (BCA AI & ML, 2023–2026)
                     </span>
                   </div>
 
-                  <div className="border-border/50 bg-secondary/40 hover:border-primary/40 hover:bg-secondary/70 flex cursor-default items-center gap-3 rounded-lg border p-3 text-sm transition-all duration-200 hover:translate-x-1">
+                  <div className="border-border/50 bg-secondary/40 hover:border-primary/40 hover:bg-secondary/70 flex cursor-default items-center gap-3 rounded-lg border p-3 text-sm transition-all duration-200 hover:translate-x-1 animate-slide-in-right" style={{ animationDelay: '0.25s' }}>
                     <MapPin className="text-primary size-4 shrink-0" />
                     <span className="text-muted-foreground text-xs break-words sm:text-sm">
                       {profile.location}
                     </span>
                   </div>
 
-                  <div className="border-border/50 bg-secondary/40 hover:border-primary/40 hover:bg-secondary/70 flex cursor-default items-center gap-3 rounded-lg border p-3 text-sm transition-all duration-200 hover:translate-x-1">
+                  <div className="border-border/50 bg-secondary/40 hover:border-primary/40 hover:bg-secondary/70 flex cursor-default items-center gap-3 rounded-lg border p-3 text-sm transition-all duration-200 hover:translate-x-1 animate-slide-in-right" style={{ animationDelay: '0.4s' }}>
                     <Headphones className="text-primary size-4 shrink-0" />
                     <span className="text-muted-foreground text-xs break-words sm:text-sm">
                       AIML Specialisation & IT Operations
@@ -178,31 +178,36 @@ export function About() {
               </span>
               <Badge
                 variant="secondary"
-                className="border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 cursor-default transition-all duration-200 hover:scale-105"
+                className="border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 cursor-default transition-all duration-200 hover:scale-105 animate-scale-pop"
+                style={{ animationDelay: '0.1s' }}
               >
                 AIML (AI & Machine Learning)
               </Badge>
               <Badge
                 variant="secondary"
-                className="hover:bg-primary/15 hover:border-primary/40 hover:text-primary cursor-default transition-all duration-200 hover:scale-105"
+                className="hover:bg-primary/15 hover:border-primary/40 hover:text-primary cursor-default transition-all duration-200 hover:scale-105 animate-scale-pop"
+                style={{ animationDelay: '0.2s' }}
               >
                 Natural Language Processing (NLP)
               </Badge>
               <Badge
                 variant="secondary"
-                className="hover:bg-primary/15 hover:border-primary/40 hover:text-primary cursor-default transition-all duration-200 hover:scale-105"
+                className="hover:bg-primary/15 hover:border-primary/40 hover:text-primary cursor-default transition-all duration-200 hover:scale-105 animate-scale-pop"
+                style={{ animationDelay: '0.3s' }}
               >
                 IT Service Desk Support
               </Badge>
               <Badge
                 variant="secondary"
-                className="hover:bg-primary/15 hover:border-primary/40 hover:text-primary cursor-default transition-all duration-200 hover:scale-105"
+                className="hover:bg-primary/15 hover:border-primary/40 hover:text-primary cursor-default transition-all duration-200 hover:scale-105 animate-scale-pop"
+                style={{ animationDelay: '0.4s' }}
               >
                 Incident Ticketing & SLAs
               </Badge>
               <Badge
                 variant="secondary"
-                className="hover:bg-primary/15 hover:border-primary/40 hover:text-primary cursor-default transition-all duration-200 hover:scale-105"
+                className="hover:bg-primary/15 hover:border-primary/40 hover:text-primary cursor-default transition-all duration-200 hover:scale-105 animate-scale-pop"
+                style={{ animationDelay: '0.5s' }}
               >
                 Root Cause Analysis
               </Badge>

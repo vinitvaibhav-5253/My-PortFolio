@@ -1,3 +1,7 @@
+'use client'
+
+import { useRef } from 'react'
+import { useInView } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 interface SectionHeadingProps {
@@ -13,6 +17,9 @@ export function SectionHeading({
   centered = false,
   className,
 }: SectionHeadingProps) {
+  const barRef = useRef<HTMLDivElement>(null)
+  const isBarInView = useInView(barRef, { once: true, amount: 0.5 })
+
   return (
     <div className={cn(centered && 'text-center', 'mb-12', className)}>
       <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
@@ -29,7 +36,13 @@ export function SectionHeading({
         </p>
       )}
       <div
-        className={cn('bg-primary mt-4 h-1 w-12 rounded-full', centered && 'mx-auto')}
+        ref={barRef}
+        className={cn(
+          'bg-primary mt-4 h-1 w-12 rounded-full origin-left transition-transform duration-700',
+          centered && 'mx-auto',
+          isBarInView ? 'scale-x-100' : 'scale-x-0',
+        )}
+        style={{ transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)' }}
         aria-hidden="true"
       />
     </div>

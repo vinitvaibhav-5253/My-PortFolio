@@ -420,7 +420,7 @@ function VerticalTimeline({
             className="group relative flex items-start gap-4 sm:gap-6"
           >
             {/* Timeline Node Ring */}
-            <div className="border-primary bg-background text-primary shadow-glow absolute top-1.5 -left-8 flex size-8 items-center justify-center rounded-full border-2 transition-transform duration-300 group-hover:scale-110 sm:-left-10 sm:size-10">
+            <div className="border-primary bg-background text-primary shadow-glow absolute top-1.5 -left-8 flex size-8 items-center justify-center rounded-full border-2 transition-transform duration-300 group-hover:scale-110 sm:-left-10 sm:size-10 animate-pulse-ring">
               <IconComponent className="size-4 sm:size-5" />
             </div>
 
